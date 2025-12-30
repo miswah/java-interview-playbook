@@ -10,7 +10,7 @@ This Section will contain notes for stream api as well as practice questions.
 
 ---
 
-## 1. Square each number in the list and collect the result into a new list
+1. ## Square each number in the list and collect the result into a new list
 
 ```java
  List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
@@ -22,7 +22,7 @@ This Section will contain notes for stream api as well as practice questions.
 ```
 ---
 
-## 2. Find the length of the longest name in the list
+2. ## Find the length of the longest name in the list
 
 ```java
    List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eva");
@@ -33,7 +33,7 @@ This Section will contain notes for stream api as well as practice questions.
 7
 ```
 
-## Concatenation of the first two words that have even length
+3. ## Concatenation of the first two words that have even length
 ```java
  List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "elderberry");
  ```

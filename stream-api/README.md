@@ -24,7 +24,12 @@ This Section will contain notes for stream api as well as practice questions.
 | 18  | [Custom Sorting (Multiple Criteria)](#custom-sorting-multiple-criteria)                                                                        | Medium     |
 | 19  | [Counting Character Frequency](#counting-character-frequency)                                                                                  | Medium     |
 | 20  | [Finding the First Non-Repeated Character](#finding-the-first-non-repeated-character)                                                          | Medium     |
-|     |                                                                                                                                                |            |
+| 21  | [Creating a Multi-Level Map](#creating-a-multi-level-map)                                                                                      | Hard       |
+| 22  | [The "Sliding Window" Problem](#the-sliding-window-problem)                                                                                    | Hard       |
+| 23  | [Finding Maximum Values per Group](#finding-maximum-values-per-group)                                                                          | Hard       |
+| 24  | [Custom Collector: Product Calculation](#custom-collector-product-calculation)                                                                 | Hard       |
+| 25  | [Infinite Streams and Fibonacci](#infinite-streams-and-fibonacci)                                                                              | Hard       |
+
 
 ---
 
@@ -258,6 +263,83 @@ String input = "swiss";
 ```
 
 **Expected Output** `'w'`
+
+**[⬆ Back to Top](#table-of-contents)**
+---
+
+21. ## Creating a Multi-Level Map
+
+Given a list of Employee objects (fields: department, city, salary), write a stream pipeline to create a nested map: Map<String, Map<String, Double>>. The outer map key should be the department, the inner map key the city, and the value should be the average salary in that specific department/city combo.
+
+```java
+List<Employee> employees = Arrays.asList(
+            new Employee("Alice", "IT", "New York", 90000),
+            new Employee("Bob", "IT", "New York", 110000),
+            new Employee("Charlie", "IT", "London", 80000),
+            new Employee("David", "HR", "London", 70000),
+            new Employee("Eve", "HR", "London", 60000)
+        );
+```
+**Expected Output** 
+```java 
+{
+  IT={New York=100000.0, London=80000.0}, 
+  HR={London=65000.0}
+} 
+```
+
+
+**[⬆ Back to Top](#table-of-contents)**
+---
+
+22. ## The "Sliding Window" Problem
+Write a Stream-based solution to find all possible "windows" of size 3.
+```java
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+```
+
+**Expected Output** `[[1, 2, 3], [2, 3, 4], [3, 4, 5]]`
+
+**[⬆ Back to Top](#table-of-contents)**
+---
+
+23. ## Finding Maximum Values per Group
+Given a list of Product objects (fields: category, name, price), find the most expensive product in each category. The result should be a Map<String, Product>.
+```java
+List<Product> products = Arrays.asList(
+            new Product("iPhone", "Electronics", 999.0),
+            new Product("Samsung S23", "Electronics", 899.0),
+            new Product("Bread", "Grocery", 2.5),
+            new Product("Milk", "Grocery", 3.0),
+            new Product("Chair", "Furniture", 150.0)
+        );
+```
+
+**Expected Output** 
+```java
+Electronics -> iPhone ($999.0)
+Grocery -> Milk ($3.0)
+Furniture -> Chair ($150.0)
+```
+
+**[⬆ Back to Top](#table-of-contents)**
+---
+
+24. ## Custom Collector: Product Calculation
+Write a custom implementation of the reduce method to calculate the product (factorial-style multiplication) of all numbers in a list, ensuring it handles an empty list by returning 1.
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+```
+
+**Expected Output** `120`
+
+**[⬆ Back to Top](#table-of-contents)**
+---
+
+25. ## Infinite Streams and Fibonacci
+Generate the first 10 numbers of the Fibonacci sequence.
+
+**Expected Output** `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]`
 
 **[⬆ Back to Top](#table-of-contents)**
 ---

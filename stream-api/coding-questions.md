@@ -247,12 +247,12 @@ Given a list of strings, find the average length of all strings that start with 
 List<String> words = Arrays.asList("Apple", "Ant", "Banana", "Aardvark", "Cherry");
 ```
 
-**Expected Output** `4.333... (Average of 5, 3, and 8)`
+**Expected Output** `5.333333333333333`
 
 **[⬆ Back to Top](#table-of-contents)**
 ---
 
-18. ## Custom Sorting (Multiple Criteria)
+1.  ## Custom Sorting (Multiple Criteria)
 Given a list of strings, sort them first by their length (ascending) and then alphabetically for strings of the same length.
 
 ```java

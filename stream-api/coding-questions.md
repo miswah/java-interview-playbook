@@ -4,7 +4,7 @@ This Section will contain stream api practice questions.
 
 | No  | Questions                                                                                                                                      | Dificulity |
 | --- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| 1   | [Square each number in the list and collect the result into a new list](#square-each-number-in-the-list-and-collectthe-result-into-a-new-list) | Easy       |
+| 1   | [Square each number in the list and collect the result into a new list](#square-each-number-in-the-list-and-collect-the-result-into-a-new-list) | Easy       |
 | 2   | [find the length of the longest name in the list](#find-the-length-of-the-longest-name-in-the-list)                                            | Easy       |
 | 3   | [Concatenation of the first two words that have even length](#concatenation-of-the-first-two-words-that-have-even-length)                      | Easy       |
 | 4   | [Sorting Strings Alphabetically](#sorting-strings-alphabetically)                                                                              | Easy       |
@@ -92,7 +92,7 @@ List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David");
 ```
 
 **Expected Output**
-`2`
+`3`
 
 **[⬆ Back to Top](#table-of-contents)**
 ---

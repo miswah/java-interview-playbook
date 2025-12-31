@@ -214,6 +214,26 @@ Given a list of Person objects (assume fields id and name), convert the list int
 
 ```java
 List<Person> people = Arrays.asList(new Person(1, "Alice"), new Person(2, "Bob"));
+
+
+   private static class Person {
+        public int getId() {
+            return id;
+        }
+
+        int id;
+
+        public String getName() {
+            return name;
+        }
+
+        String name;
+
+        public Person(int id, String name){
+            this.id = id;
+            this.name = name;
+        }
+    }
 ```
 **Expected Output** `{1=Alice, 2=Bob}`
 

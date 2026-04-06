@@ -1,0 +1,139 @@
+Here is your cleaned and properly formatted Markdown (all emojis removed and structure improved):
+
+---
+
+# Order Enrichment Service
+
+## Scenario
+
+You are building an **Order Enrichment Service**.
+
+You receive a list of orders. For each order, you must:
+
+* Fetch user details (simulated API call)
+* Fetch payment status (simulated API call)
+* Combine everything into an enriched response
+
+> Note: Each external call is blocking (`Thread.sleep`)
+
+---
+
+## Data Models (Use `record`)
+
+```java
+public record Order(int orderId, int userId, double amount) {}
+
+public record User(int userId, String name) {}
+
+public record Payment(int orderId, String status) {}
+
+public record EnrichedOrder(
+        int orderId,
+        String userName,
+        double amount,
+        String paymentStatus
+) {}
+```
+
+---
+
+## Simulated External Services
+
+```java
+public class ExternalServices {
+
+    public static User fetchUser(int userId) {
+        sleep(200); // simulate API delay
+        return new User(userId, "User-" + userId);
+    }
+
+    public static Payment fetchPayment(int orderId) {
+        sleep(300); // simulate API delay
+        return new Payment(orderId, "SUCCESS");
+    }
+
+    private static void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+```
+
+---
+
+## Input
+
+```java
+List<Order> orders = List.of(
+    new Order(1, 101, 500),
+    new Order(2, 102, 1500),
+    new Order(3, 103, 2500),
+    new Order(4, 104, 3500)
+);
+```
+
+---
+
+## Your Task
+
+Implement:
+
+```java
+List<EnrichedOrder> enrichOrders(List<Order> orders)
+```
+
+---
+
+## Requirements
+
+### Must Use
+
+* `Executors.newVirtualThreadPerTaskExecutor()`
+* Submit one task per order
+
+### Each Task Should
+
+* Call both APIs (`fetchUser` and `fetchPayment`)
+* Combine results into `EnrichedOrder`
+
+### Ensure
+
+* All tasks complete before returning the result
+
+### Avoid
+
+* `parallelStream()` (not the goal here)
+* Platform thread pools (e.g., `newFixedThreadPool`)
+
+---
+
+## Expected Thinking
+
+You should recognize:
+
+* Each order takes approximately 500 ms sequentially
+* With virtual threads, all tasks run concurrently
+* Total time should be approximately 300–600 ms instead of 2000 ms+
+
+---
+
+## Bonus (Important Insight)
+
+After solving, answer:
+
+**Why are virtual threads ideal here even though we are using blocking calls?**
+
+---
+
+## Stretch Goal (Optional)
+
+Modify your solution so that:
+
+* `fetchUser` and `fetchPayment` run in parallel inside each order task
+
+Hint: Consider nested virtual threads or structured concurrency.
+
+---

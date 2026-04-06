@@ -1,0 +1,1 @@
+public record Order(int orderId, int userId, double amount) {}

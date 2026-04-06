@@ -1,0 +1,1 @@
+public record Payment(int orderId, String status) {}

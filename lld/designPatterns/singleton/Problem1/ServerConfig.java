@@ -1,0 +1,1 @@
+public record ServerConfig(String host, int port, int maxConnections, boolean isCacheEnabled) {}

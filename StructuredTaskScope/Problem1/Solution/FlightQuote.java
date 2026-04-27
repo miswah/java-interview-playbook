@@ -1,0 +1,1 @@
+public record FlightQuote(String airline, String flightNumber, double price) {}

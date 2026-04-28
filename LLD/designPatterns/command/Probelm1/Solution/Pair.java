@@ -1,0 +1,1 @@
+record Pair(String key, DatabaseRow value){};

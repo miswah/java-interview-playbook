@@ -1,0 +1,1 @@
+public record DatabaseRow(String id, String payload) {}

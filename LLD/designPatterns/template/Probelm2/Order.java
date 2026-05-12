@@ -1,0 +1,1 @@
+public record Order(String orderId, double basePrice, String customerEmail, OrderType type) {}

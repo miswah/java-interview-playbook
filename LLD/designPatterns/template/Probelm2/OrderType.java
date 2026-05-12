@@ -1,0 +1,1 @@
+public enum OrderType { PHYSICAL, DIGITAL }

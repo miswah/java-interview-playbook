@@ -1,0 +1,1 @@
+public record Transaction(String id, double amount, String currency) {}
